@@ -1,0 +1,60 @@
+# ==============================================================================
+# Global & OS Junk
+# ==============================================================================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+
+# ==============================================================================
+# Security & Credentials (Crucial)
+# ==============================================================================
+*.key
+*.pem
+*secret*
+*token*
+.env
+
+# ==============================================================================
+# Application Specific Ignores
+# ==============================================================================
+
+# Bash
+.bash_history
+
+# Fish Shell
+fish/work-tree/
+fish/fish_history
+
+# Neovim (nvim) & Doom Emacs
+# Ignores runtime states, undone trees, compiled binaries, and lockfiles
+.replit
+.shadow/
+.elc
+doom/.local/
+nvim/.replit
+*/.git/
+*/pack/
+*/lazy/
+*/undo/
+*/swap/
+*/backup/
+
+# Polybar / BSPWM / SXHKD
+# Usually safe, but ignore active process or socket dumps if any occur
+*.sock
+
+# Ranger File Manager
+ranger/plugins/
+ranger/history
+ranger/tagged
+
+# Zellij Terminal Multiplexer
+# Ignores temporary session and layout caches
+zellij/cached_layouts/
+
+# Terminator & Alacritty & Zathura
+# These apps are purely configuration-driven; no dynamic internal junk to ignore
+
+.ssh/
