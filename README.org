@@ -1,0 +1,25 @@
+#+title: My Dotfiles
+#+AUTHOR: Praneeth Priyankara
+
+This repository contains the dotfiles I use in both Linux and Windows.
+
+***** Linux
+
+- [[file:X11/][X11]]
+- [[file:alacritty/][Alacritty]]
+- [[file:bash/][Bash]]
+- [[file:bspwm/][bspwm]]
+- [[file:doom/][Doom (Emacs)]]
+- [[file:fish/][Fish shell]]
+- [[file:nvim/][Neovim]]
+- [[file:polybar/][Polybar]]
+- [[file:ranger/][Ranger]]
+- [[file:sxhkd/][sxhkd]]
+- [[file:terminator/][Terminator]]
+- [[file:zathura/][Zathura]]
+- [[file:zellij/][Zellij]]
+
+
+***** Windows
+
+- [[file:Powershell/][Powershell]]
