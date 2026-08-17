@@ -1,0 +1,41 @@
+[window]
+position = "None"
+padding = {x = 2, y = 1}
+dynamic_padding = true
+decorations = "None"
+opacity = 1
+startup_mode = "Windowed"
+class = { instance = "Alacritty", general = "Alacritty" }
+decorations_theme_variant = "Dark"
+
+[scrolling]
+history = 8000
+multiplier = 5
+
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+blink_interval = 950
+unfocused_hollow = true
+thickness = 0.2
+
+[mouse]
+hide_when_typing = true
+
+[font]
+normal = { family = "SF Mono", style = "Regular" }
+bold = { family = "SF Mono", style = "Bold" }
+italic = { family = "SF Mono", style = "Italic" }
+bold_italic = { family = "SF Mono", style = "Bold Italic" }
+size = 12
+offset = { x = 0, y = 3 }
+
+[general]
+live_config_reload = true
+working_directory = "/home/praneethpri/"
+ipc_socket = true
+import = ["/home/praneethpri/.config/alacritty/themes/alacritty-theme/themes/blue-spice.toml"]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

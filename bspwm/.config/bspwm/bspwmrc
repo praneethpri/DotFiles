@@ -1,0 +1,43 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+
+bspc config border_width         2
+bspc config window_gap           0
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Pcmanfm state=floating rectangle=700x400+0+0 center=true
+bspc rule -a Doublecmd state=floating rectangle=700x400+0+0 center=true
+bspc rule -a pavucontrol state=floating rectangle=1000x600+0+0 center=true
+bspc rule -a mini-text state=floating rectangle=500x200+0+0 center=true
+bspc rule -a xterm-256color state=floating rectangle=600x200+750+25 manage=on
+bspc rule -a Brave-browser desktop=2
+bspc rule -a alacritty desktop=1
+bspc rule -a gnome-calculator state=floating rectangle=350x600+0+0 center=true
+bspc rule -a copyq state=floating rectangle=500x300+0+0 center=true
+bspc rule -a URxvt state=floating rectangle=500x150+0+0 center=true
+bspc rule -a XCalc state=floating rectangle=250x400+750+40 manage=on
+bspc rule -a emojify state=floating rectangle=400x450+750+250 manage=on
+
+sxhkd &
+~/./.fehbg
+nitrogen --restore
+xrdb -merge ~/.Xdefaults
+
+killall -q polybar
+
+while pgrep -u "$UID" -x polybar > /dev/null; do
+    sleep 0.2
+done
+
+polybar &
+picom &
+mate-polkit &
+xautolock -time 10 -locker slock &
+clipmenud &
+

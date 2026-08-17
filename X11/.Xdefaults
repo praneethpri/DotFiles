@@ -1,0 +1,48 @@
+*xterm*VT100*geometry: 110x15
+*xterm*background: black
+*xterm*foreground: lightblue
+*xterm*loginShell: true
+*xterm*saveLine: 5000
+*xterm*title: XTerm
+*xterm*rightScrollBar: true
+*xterm*faceSize: 14
+*xterm*faceName: Iosevka
+*xterm*toolBar: on
+
+
+! special
+*.foreground:   #e2e298
+*.background:   #314053
+*.cursorColor:  #e2e298
+
+! black
+*.color0:       #464141
+*.color8:       #7b7474
+
+! red
+*.color1:       #a20e0d
+*.color9:       #710f0d
+
+! green
+*.color2:       #1fa60c
+*.color10:      #53d23f
+
+! yellow
+*.color3:       #9e9c01
+*.color11:      #eae862
+
+! blue
+*.color4:       #03189c
+*.color12:      #425be6
+
+! magenta
+*.color5:       #b910bf
+*.color13:      #f915fb
+
+! cyan
+*.color6:       #0ccbcb
+*.color14:      #14ffff
+
+! white
+*.color7:       #e5e5e5
+*.color15:      #ffffff

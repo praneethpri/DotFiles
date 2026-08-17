@@ -1,0 +1,53 @@
+[global_config]
+  dbus = False
+  tab_position = left
+  title_at_bottom = True
+  new_tab_after_current_tab = True
+[keybindings]
+  cycle_next = <Primary><Alt>l
+  cycle_prev = <Primary><Alt>h
+  split_horiz = <Shift><Alt>h
+  split_vert = <Shift><Alt>v
+  page_up = <Primary>Up
+  page_down = <Primary>Down
+  page_up_half = <Alt>u
+  page_down_half = <Alt>d
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+  switch_to_tab_1 = <Alt>exclam
+  switch_to_tab_2 = <Alt>at
+  switch_to_tab_3 = <Alt>numbersign
+  switch_to_tab_4 = <Alt>dollar
+  switch_to_tab_5 = <Alt>percent
+  switch_to_tab_6 = <Alt>asciicircum
+  switch_to_tab_7 = <Alt>ampersand
+  switch_to_tab_8 = <Alt>asterisk
+  switch_to_tab_9 = <Alt>parenleft
+  switch_to_tab_10 = <Alt>parenright
+[profiles]
+  [[default]]
+    visible_bell = True
+    icon_bell = False
+    background_color = "#1f1f28"
+    background_darkness = 0.7
+    background_type = image
+    background_image = /home/priyankara/Wallpapers/terminator_background.png
+    cursor_shape = ibeam
+    font = Liga SFMono Nerd Font 14
+    foreground_color = "#dcd7ba"
+    show_titlebar = False
+    palette = "#16161d:#c34043:#76946a:#c0a36e:#7e9cd8:#957fb8:#6a9589:#c8c093:#727169:#e82424:#98bb6c:#e6c384:#7fb4ca:#938aa9:#7aa89f:#dcd7ba"
+    use_custom_command = True
+    custom_command = fish
+    use_system_font = False
+    copy_on_selection = True
+    title_hide_sizetext = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

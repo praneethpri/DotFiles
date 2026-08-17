@@ -1,0 +1,32 @@
+#+title: Eshell
+
+* Aliases
+
+This file is for the setting aliases and eshell settings.
+
+- General aliases
+#+begin_src emacs-lisp :tangle run.el
+alias cd z $1
+alias .. z ..
+alias ... z ../..
+alias ~ z ~
+alias mv mv -v
+alias cp cp -v
+alias cls clear
+alias upd sudo pacman -Syu --noconfirm
+alias ins sudo pacman -S --noconfirm
+alias ser pacman -S
+alias xcopy xclip -selection clipboard
+alias readme touch README.md
+#+end_src
+
+- Emacs specific commands
+  - aliasing =find-file= commands
+#+begin_src emacs-lisp :tangle run.el
+alias e find-file $1
+#+end_src
+
+  - aliasing =view-file= commands
+#+begin_src emacs-lisp :tangle run.el
+alias less view-file $1
+#+end_src

@@ -1,0 +1,38 @@
+# Colors (Blue Spice)
+
+# Default colors
+[colors.primary]
+background = '#031e38'
+foreground = '#9ad1b3'  # slightly brighter for readability
+
+# Cursor
+[colors.cursor]
+text = '#031e38'
+cursor = '#7fa895'  # brighter cursor for visibility
+
+# Selection (added for usability)
+[colors.selection]
+text = '#031e38'
+background = '#5f819d'
+
+# Normal colors
+[colors.normal]
+black   = '#283b62'
+red     = '#d94a4a'   # slightly softened for readability
+green   = '#9cad4b'
+yellow  = '#d8b49a'
+blue    = '#6f97b5'
+magenta = '#9679a3'
+cyan    = '#6fa9a2'
+white   = '#7f8c96'
+
+# Bright colors
+[colors.bright]
+black   = '#93438b'
+red     = '#e07b7b'
+green   = '#c8d97d'
+yellow  = '#b79b5a'
+blue    = '#9bbcd3'
+magenta = '#c3a6cf'
+cyan    = '#a0d4cd'
+white   = '#e6fff5'

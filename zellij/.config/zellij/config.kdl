@@ -1,0 +1,50 @@
+on_force_close "quit"
+simplified_ui false
+default_shell "fish"
+pane_frames true
+theme "everforest-dark-medium"
+default_layout "compact"
+default_mode "locked"
+mouse_mode true
+scroll_buffer_size 10000
+copy_command "xclip -selection clipboard"
+copy_clipboard "primary"
+copy_on_select true
+scrollback_editor "/usr/bin/nvim"
+mirror_session false
+layout_dir "~/.config/zellij/layouts"
+theme_dir "/home/priyankara/.config/zellij/themes/"
+auto_layout true
+styled_underlines true
+session_serialization true
+pane_viewport_serialization true
+disable_session_metadata true
+show_startup_tips false
+show_release_notes false
+
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name false
+    }
+}
+
+keybinds {
+    normal {
+        bind "Ctrl g" { SwitchToMode "locked"; }
+        bind "Ctrl p" { SwitchToMode "pane"; }
+        bind "Alt n" { NewPane; }
+        bind "Ctrl t" { NewTab; }
+        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Ctrl x" { CloseTab; }
+        bind "Alt x" { CloseFocus; }
+    }
+    locked {
+        bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Alt u" { HalfPageScrollUp; }
+        bind "Alt d" { HalfPageScrollDown; }
+        bind "PageUp" { PageScrollUp; }
+        bind "PageDown" { PageScrollDown; }
+    }
+}
