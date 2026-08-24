@@ -1,6 +1,13 @@
-(setq doom-theme 'doom-one)
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-xcode t)
+  (doom-themes-visual-bell-config))
+(setq doom-theme 'doom-xcode)
 
-(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'semi-bold)
+(rainbow-mode -1)
+
+(setq doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'semi-bold)
       doom-variable-pitch-font (font-spec :family "IBM Plex Mono" :size 13 :weight 'regular))
 
 (setq display-line-numbers-type t)
@@ -20,17 +27,13 @@
 
 (add-to-list 'load-path "~/.config/doom/Scripts/")
 
-(provide 'run)
+(setq eshell-aliases-file (concat doom-user-dir "Scripts/run.el"))
 
-(after! wp
-  (set-fontset-font "fontset-default"
-                    'sinhala
-                    (font-spec
-                     :family "Noto Sans Sinhala"
-                     :size 14))) ;;
+(set-fontset-font t 'sinhala (font-spec :family "Noto Sans Sinhala"))
 
-(after! org
-  (set-char-table-range composition-function-table '(#x0D80 . #x0DFF) 'font-shape-gstring))
+(set-char-table-range composition-function-table
+                      '(#x0D80 . #x0DFF)
+                      (list (vector "[\x0D80-\x0DFF]+" 0 'font-shape-gstring)))
 
 (setq org-directory "~/org/")
 
@@ -41,6 +44,8 @@
 (setq dired-dwim-target t)
 
 (setq vterm-shell "/usr/bin/fish")
+
+(add-hook 'vterm-mode-hook (lambda () (display-line-numbers-mode -1)))
 
 (map! :leader
       :desc "Opening VTerm" "v t" #'+vterm/here)
@@ -55,3 +60,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.mjml\\'" . web-mode))
 (setq web-mode-content-types-alist '(("xml" . "\\.mjml\\'")))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((yaml . t)
+   (shell . t)))
