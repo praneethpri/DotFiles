@@ -58,6 +58,17 @@
    'org-babel-do-load-languages
    '((js . t))))
 
+(use-package! eglot
+  :ensure t
+  :config
+  (add-to-list 'eglot-server-programs
+               '((typescript-mode tsx-ts-mode)
+                 . ("typescript-language-server" "--stdio"
+                    :initializationOptions
+                    (:tsserver (:path "/usr/local/lib/node_modules/typescript/bin/tsserver")))))
+  :hook ((typescript-mode . eglot-ensure)
+         (tsx-ts-mode . eglot-ensure)))
+
 (add-to-list 'auto-mode-alist '("\\.mjml\\'" . web-mode))
 (setq web-mode-content-types-alist '(("xml" . "\\.mjml\\'")))
 

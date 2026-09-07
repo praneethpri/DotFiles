@@ -23,6 +23,7 @@ bspc rule -a copyq state=floating rectangle=500x300+0+0 center=true
 bspc rule -a URxvt state=floating rectangle=500x150+0+0 center=true
 bspc rule -a XCalc state=floating rectangle=250x400+750+40 manage=on
 bspc rule -a emojify state=floating rectangle=400x450+750+250 manage=on
+bspc rule -a AppFlowy state=tiled
 
 sxhkd &
 ~/./.fehbg

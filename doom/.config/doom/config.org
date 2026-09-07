@@ -148,6 +148,19 @@ VTerm is a terminal emulator for emacs.
    '((js . t))))
 #+end_src
 
+#+begin_src emacs-lisp :tangle config.el
+(use-package! eglot
+  :ensure t
+  :config
+  (add-to-list 'eglot-server-programs
+               '((typescript-mode tsx-ts-mode)
+                 . ("typescript-language-server" "--stdio"
+                    :initializationOptions
+                    (:tsserver (:path "/usr/local/lib/node_modules/typescript/bin/tsserver")))))
+  :hook ((typescript-mode . eglot-ensure)
+         (tsx-ts-mode . eglot-ensure)))
+#+end_src
+
 **** MJML
 #+begin_src emacs-lisp :tangle config.el
 (add-to-list 'auto-mode-alist '("\\.mjml\\'" . web-mode))
