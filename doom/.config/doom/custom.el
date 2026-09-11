@@ -6,7 +6,8 @@
  ;; If there is more than one, they won't work right.
  '(auth-source-save-behavior nil)
  '(package-selected-packages
-   '(claude-code dirvish docker doom-themes ox-pandoc pdf-tools typescript-mode)))
+   '(claude-code dired-preview dirvish docker doom-themes ox-pandoc pdf-tools
+     show-font typescript-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

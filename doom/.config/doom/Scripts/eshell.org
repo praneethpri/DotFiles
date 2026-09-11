@@ -7,34 +7,43 @@ This file is for the setting aliases and eshell settings.
 - General aliases
   - Navigation & Zoxide
 #+begin_src emacs-lisp :tangle run.el
-alias cd z $1
-alias .. z ..
-alias ... z ../..
-alias ~ z ~
+;;; run.el --- Eshell aliases configuration
+
+(defvar eshell-command-aliases-list
+  '(
+    ("z" "cd $1")
+    (".." "cd ..")
+    ("..." "cd ../..")
+    ("~" "cd ~")
 #+end_src
 
 - System Utilities
 #+begin_src emacs-lisp :tangle run.el
-alias cls clear
-alias upd sudo pacman -Syu --noconfirm $*
-alias ins sudo pacman -S --noconfirm $*
-alias ser pacman -S $*
-alias xcopy xclip -selection clipboard $*
-alias readme touch README.md
+    ("cls" "clear")
+    ("upd" "sudo pacman -Syu --noconfirm $*")
+    ("ins" "sudo pacman -S --noconfirm $*")
+    ("ser" "pacman -Ss $*")
+    ("xcopy" "xclip -selection clipboard $*")
+    ("readme" "touch README.md")
 #+end_src
 
 #+begin_src emacs-lisp :tangle run.el
-alias mv mv -v $1
-alias cp cp -v $1
+    ("mv" "mv -v $1")
+    ("cp" "cp -v $1")
 #+end_src
 
 - Emacs specific commands
   - aliasing =find-file= commands
 #+begin_src emacs-lisp :tangle run.el
-alias e find-file $1
+    ("e" "find-file $1")
 #+end_src
 
   - aliasing =view-file= commands
 #+begin_src emacs-lisp :tangle run.el
-alias less view-file $1
+    ("less" "view-file $1")
+    )
+  "Eshell command aliases")
+
+(provide 'run)
+;;; run.el ends here
 #+end_src

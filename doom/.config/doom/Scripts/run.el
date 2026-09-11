@@ -1,17 +1,27 @@
-alias .. z ..
-alias ... z ../..
-alias ~ z ~
+;;; run.el --- Eshell aliases configuration
 
-alias cls clear
-alias upd sudo pacman -Syu --noconfirm $*
-alias ins sudo pacman -S --noconfirm $*
-alias ser pacman -S $*
-alias xcopy xclip -selection clipboard $*
-alias readme touch README.md
+(defvar eshell-command-aliases-list
+  '(
+    ("z" "cd $1")
+    (".." "cd ..")
+    ("..." "cd ../..")
+    ("~" "cd ~")
 
-alias mv mv -v $1
-alias cp cp -v $1
+    ("cls" "clear")
+    ("upd" "sudo pacman -Syu --noconfirm $*")
+    ("ins" "sudo pacman -S --noconfirm $*")
+    ("ser" "pacman -Ss $*")
+    ("xcopy" "xclip -selection clipboard $*")
+    ("readme" "touch README.md")
 
-alias e find-file $1
+    ("mv" "mv -v $1")
+    ("cp" "cp -v $1")
 
-alias less view-file $1
+    ("e" "find-file $1")
+
+    ("less" "view-file $1")
+    )
+  "Eshell command aliases")
+
+(provide 'run)
+;;; run.el ends here

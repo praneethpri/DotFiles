@@ -14,6 +14,8 @@
 
 (setq select-enable-clipboard t)
 
+(show-paren-mode 1)
+
 (after! evil
   (evil-ex-define-cmd "q" #'kill-current-buffer))
 
@@ -27,7 +29,8 @@
 
 (add-to-list 'load-path "~/.config/doom/Scripts/")
 
-(setq eshell-aliases-file (concat doom-user-dir "Scripts/run.el"))
+(after! eshell
+  (load (concat doom-user-dir "Scripts/run.el")))
 
 (set-fontset-font t 'sinhala (font-spec :family "Noto Sans Sinhala"))
 
@@ -58,16 +61,10 @@
    'org-babel-do-load-languages
    '((js . t))))
 
-(use-package! eglot
-  :ensure t
-  :config
+(after! eglot
   (add-to-list 'eglot-server-programs
-               '((typescript-mode tsx-ts-mode)
-                 . ("typescript-language-server" "--stdio"
-                    :initializationOptions
-                    (:tsserver (:path "/usr/local/lib/node_modules/typescript/bin/tsserver")))))
-  :hook ((typescript-mode . eglot-ensure)
-         (tsx-ts-mode . eglot-ensure)))
+               '((typescript-tsx-mode typescript-mode js-mode js-ts-mode tsx-ts-mode)
+                 . ("/home/priyankara/.config/nvm/versions/node/v26.2.0/bin/tsc" "--lsp" "--stdio"))))
 
 (add-to-list 'auto-mode-alist '("\\.mjml\\'" . web-mode))
 (setq web-mode-content-types-alist '(("xml" . "\\.mjml\\'")))

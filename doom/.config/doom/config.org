@@ -36,6 +36,11 @@
 (setq select-enable-clipboard t)
 #+end_src
 
+- Parenthesis highlighting
+#+begin_src emacs-lisp :tangle config.el
+(show-paren-mode 1)
+#+end_src
+
 - Preventing killing the window
   - Preventing =:q= killing the window and exit only the buffer
 #+begin_src emacs-lisp :tangle config.el
@@ -69,7 +74,8 @@
 
 - Sourcing the run.el
 #+begin_src emacs-lisp :tangle config.el
-(setq eshell-aliases-file (concat doom-user-dir "Scripts/run.el"))
+(after! eshell
+  (load (concat doom-user-dir "Scripts/run.el")))
 #+end_src
 
 *** Setting the Sinhala Language
@@ -149,16 +155,10 @@ VTerm is a terminal emulator for emacs.
 #+end_src
 
 #+begin_src emacs-lisp :tangle config.el
-(use-package! eglot
-  :ensure t
-  :config
+(after! eglot
   (add-to-list 'eglot-server-programs
-               '((typescript-mode tsx-ts-mode)
-                 . ("typescript-language-server" "--stdio"
-                    :initializationOptions
-                    (:tsserver (:path "/usr/local/lib/node_modules/typescript/bin/tsserver")))))
-  :hook ((typescript-mode . eglot-ensure)
-         (tsx-ts-mode . eglot-ensure)))
+               '((typescript-tsx-mode typescript-mode js-mode js-ts-mode tsx-ts-mode)
+                 . ("/home/priyankara/.config/nvm/versions/node/v26.2.0/bin/tsc" "--lsp" "--stdio"))))
 #+end_src
 
 **** MJML
