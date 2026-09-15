@@ -1,5 +1,11 @@
 set -g fish_greeting
 
+if string match -q '*vterm*' -- "$INSIDE_EMACS"
+    set -gx EDITOR emacsclient
+else
+    set -gx EDITOR /usr/bin/nvim
+end
+
 if status is-interactive
     if not set -q ZELLIJ
         if test "$TERM" = "Alacritty"

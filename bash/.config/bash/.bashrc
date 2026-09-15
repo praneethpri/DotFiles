@@ -14,7 +14,11 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export DOCKER_CONFIG="${XDG_STATE_HOME}"/bash/history
 ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
-export EDITOR="/usr/bin/nvim"
+if [[ "$INSIDE_EMACS" == *vterm* ]]; then
+  export EDITOR="emacsclient"
+else
+  export EDITOR="/usr/bin/nvim"
+fi
 # xrdb -load "$XDG_CONFIG_HOME/X11/xresources"
 
 if [ -f /etc/bashrc ]; then

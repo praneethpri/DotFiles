@@ -50,6 +50,18 @@
 
 (add-hook 'vterm-mode-hook (lambda () (display-line-numbers-mode -1)))
 
+(use-package! claude-code
+  :ensure t
+  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+  :bind ("C-c c" . claude-code-transient)
+  :config
+  (unless (server-running-p) (server-start)))
+
+(setq claude-code-terminal-backend 'vterm)
+(setq claude-code-optimize-window-resize t)
+(setq claude-code-no-delete-other-windows t)
+(setq claude-code-toggle-auto-select t)
+
 (map! :leader
       :desc "Opening VTerm" "v t" #'+vterm/here)
 
