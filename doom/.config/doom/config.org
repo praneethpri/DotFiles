@@ -3,7 +3,7 @@
 
 * Doom Emacs Cofiguration
 
-*** Setting up the basic environment
+*** General Settings
 
 - Setting the theme
 #+begin_src emacs-lisp :tangle config.el
@@ -41,6 +41,11 @@
 (show-paren-mode 1)
 #+end_src
 
+- Global buffer reload
+  #+begin_src emacs-lisp :tangle config.el
+(global-auto-revert-mode 1)
+  #+end_src
+
 - Preventing killing the window
   - Preventing =:q= killing the window and exit only the buffer
 #+begin_src emacs-lisp :tangle config.el
@@ -65,7 +70,10 @@
 (map! "<mouse-3>" #'clipboard-kill-ring-save)
 #+end_src
 
-#+RESULTS:
+- Setting the the editor config
+  #+begin_src emacs-lisp :tangle config.el
+(editorconfig-mode 1)
+  #+end_src
 
 - Adding the scripts directory to path
 #+begin_src emacs-lisp :tangle config.el
@@ -77,6 +85,11 @@
 (after! eshell
   (load (concat doom-user-dir "Scripts/run.el")))
 #+end_src
+
+- Word wrapping at startup
+  #+begin_src emacs-lisp :tangle config.el
+(add-hook! 'after-change-major-mode-hook #'+word-wrap-mode)
+  #+end_src
 
 *** Setting the Sinhala Language
 

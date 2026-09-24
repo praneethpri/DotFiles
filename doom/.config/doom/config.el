@@ -16,6 +16,8 @@
 
 (show-paren-mode 1)
 
+(global-auto-revert-mode 1)
+
 (after! evil
   (evil-ex-define-cmd "q" #'kill-current-buffer))
 
@@ -27,10 +29,14 @@
 
 (map! "<mouse-3>" #'clipboard-kill-ring-save)
 
+(editorconfig-mode 1)
+
 (add-to-list 'load-path "~/.config/doom/Scripts/")
 
 (after! eshell
   (load (concat doom-user-dir "Scripts/run.el")))
+
+(add-hook! 'after-change-major-mode-hook #'+word-wrap-mode)
 
 (set-fontset-font t 'sinhala (font-spec :family "Noto Sans Sinhala"))
 
