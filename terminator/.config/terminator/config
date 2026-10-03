@@ -1,6 +1,7 @@
 [global_config]
   dbus = False
   tab_position = left
+  ask_before_closing = never
   title_at_bottom = True
   new_tab_after_current_tab = True
 [keybindings]

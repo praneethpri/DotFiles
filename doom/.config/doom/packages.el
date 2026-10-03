@@ -54,3 +54,4 @@
 
 (package! sudo-edit)
 (package! web-mode)
+(package! jira)

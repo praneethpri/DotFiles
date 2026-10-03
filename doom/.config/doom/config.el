@@ -1,14 +1,14 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-xcode t)
+  (load-theme 'doom-pine t)
   (doom-themes-visual-bell-config))
-(setq doom-theme 'doom-xcode)
+(setq doom-theme 'doom-pine)
 
 (rainbow-mode -1)
 
-(setq doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'semi-bold)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Mono" :size 13 :weight 'regular))
+(setq doom-font (font-spec :family "IBM Plex Mono"  :size 16 :weight 'semi-bold)
+      doom-variable-pitch-font (font-spec :family "Liga SFMono Nerd Font" :size 13 :weight 'regular))
 
 (setq display-line-numbers-type t)
 
@@ -30,6 +30,8 @@
 (map! "<mouse-3>" #'clipboard-kill-ring-save)
 
 (editorconfig-mode 1)
+
+(setq epg-pinentry-mode 'loopback)
 
 (add-to-list 'load-path "~/.config/doom/Scripts/")
 
@@ -56,18 +58,6 @@
 
 (add-hook 'vterm-mode-hook (lambda () (display-line-numbers-mode -1)))
 
-(use-package! claude-code
-  :ensure t
-  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
-  :bind ("C-c c" . claude-code-transient)
-  :config
-  (unless (server-running-p) (server-start)))
-
-(setq claude-code-terminal-backend 'vterm)
-(setq claude-code-optimize-window-resize t)
-(setq claude-code-no-delete-other-windows t)
-(setq claude-code-toggle-auto-select t)
-
 (map! :leader
       :desc "Opening VTerm" "v t" #'+vterm/here)
 
@@ -91,3 +81,8 @@
  'org-babel-load-languages
  '((yaml . t)
    (shell . t)))
+
+(use-package! jira
+  :config
+  (setq jira-base-url "https://simplyxity.atlassian.net"
+        jira-api-version 3))

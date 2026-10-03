@@ -10,9 +10,9 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-xcode t)
+  (load-theme 'doom-pine t)
   (doom-themes-visual-bell-config))
-(setq doom-theme 'doom-xcode)
+(setq doom-theme 'doom-pine)
 #+end_src
 
 - Unsetting the rainbow mode
@@ -22,8 +22,8 @@
 
 - Setting the font
 #+begin_src emacs-lisp :tangle config.el
-(setq doom-font (font-spec :family "Cascadia Code" :size 16 :weight 'semi-bold)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Mono" :size 13 :weight 'regular))
+(setq doom-font (font-spec :family "IBM Plex Mono"  :size 16 :weight 'semi-bold)
+      doom-variable-pitch-font (font-spec :family "Liga SFMono Nerd Font" :size 13 :weight 'regular))
 #+end_src
 
 - Show line numbers
@@ -73,6 +73,11 @@
 - Setting the the editor config
   #+begin_src emacs-lisp :tangle config.el
 (editorconfig-mode 1)
+  #+end_src
+
+- Setting GPG entries to use emacs
+  #+begin_src emacs-lisp :tangle config.el
+(setq epg-pinentry-mode 'loopback)
   #+end_src
 
 - Adding the scripts directory to path
@@ -142,22 +147,6 @@ VTerm is a terminal emulator for emacs.
 (add-hook 'vterm-mode-hook (lambda () (display-line-numbers-mode -1)))
 #+end_src
 
-*** Claude Code
-
-#+begin_src emacs-lisp :tangle config.el
-(use-package! claude-code
-  :ensure t
-  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
-  :bind ("C-c c" . claude-code-transient)
-  :config
-  (unless (server-running-p) (server-start)))
-
-(setq claude-code-terminal-backend 'vterm)
-(setq claude-code-optimize-window-resize t)
-(setq claude-code-no-delete-other-windows t)
-(setq claude-code-toggle-auto-select t)
-#+end_src
-
 ** Keybindings
 **** Basic Bindings
 - opening the vterm in the current directory.
@@ -201,4 +190,14 @@ VTerm is a terminal emulator for emacs.
  'org-babel-load-languages
  '((yaml . t)
    (shell . t)))
+#+end_src
+
+** Tool Specific Configurations
+
+**** Jira
+#+begin_src emacs-lisp :tangle config.el
+(use-package! jira
+  :config
+  (setq jira-base-url "https://simplyxity.atlassian.net"
+        jira-api-version 3))
 #+end_src
