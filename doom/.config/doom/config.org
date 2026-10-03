@@ -61,7 +61,7 @@
 
   - Preventing the =Z Z= exiting the emacs
 #+begin_src emacs-lisp :tangle config.el
-(after! evil-mode
+(after! evil
   (define-key evil-normal-state-map (kbd "ZZ") #'save-buffer))
 #+end_src
 

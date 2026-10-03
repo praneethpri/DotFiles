@@ -24,7 +24,7 @@
 (after! evil
   (evil-ex-define-cmd "wq" #'kill-buffer--possibly-save))
 
-(after! evil-mode
+(after! evil
   (define-key evil-normal-state-map (kbd "ZZ") #'save-buffer))
 
 (map! "<mouse-3>" #'clipboard-kill-ring-save)
